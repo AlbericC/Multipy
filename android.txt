@@ -1,0 +1,3 @@
+title=MultiPy
+author=Atrament
+orientation=portrait
