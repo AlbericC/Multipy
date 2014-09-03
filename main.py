@@ -3,9 +3,10 @@
 from random import randint
 
 import kivy
+
 kivy.require('1.1.2')
-#from kivy.config import Config
-#Config.set('graphics', 'width', '540')
+# from kivy.config import Config
+# Config.set('graphics', 'width', '540')
 #Config.set('graphics', 'height', '960')
 from kivy.app import App
 from kivy.uix.label import Label
@@ -21,9 +22,9 @@ class multipy(BoxLayout):
     """
     value1 = NumericProperty()
     value2 = NumericProperty()
-    bon = NumericProperty()     #nombre de réponses justes
-    score = NumericProperty()   #nombre de réponses justes consécutives
-    total = NumericProperty()   #nombre de réponses données en tout
+    bon = NumericProperty()  #nombre de réponses justes
+    score = NumericProperty()  #nombre de réponses justes consécutives
+    total = NumericProperty()  #nombre de réponses données en tout
     record = NumericProperty()  #meilleur "score" de la session
 
     def __init__(self, **args):
@@ -42,20 +43,23 @@ class multipy(BoxLayout):
         self.value1 = randint(1, 10)
         self.value2 = randint(1, 10)
         self.ids.afficheur.text = ""
-        self.ids.question.text = "Combien font {} x {} ?".format(self.value1, self.value2)
+        self.ids.question.text = "Combien font {} x {} ?".format(self.value1,
+                                                                 self.value2)
 
     def control(self):
         """Verifies the result against the question"""
         cont = self.ids.afficheur.text
-        correct = str(self.value1*self.value2)
+        correct = str(self.value1 * self.value2)
         if self.ids.afficheur.text == "":
             self.ids.afficheur.color = [1, 1, 1, 1]
         elif int(cont) == int(correct):
             popup = Popup(title='Bravo !',
                           title_color=[0.5, 1, 0.5, 1],
                           separator_color=[0.5, 1, 0.5, 1],
-                          content=Label(text='Bonne réponse !\n{} x {} = {}'.format(self.value1,self.value2,correct),
-                            font_size="32sp"),
+                          content=Label(text=
+                                        "Bonne réponse !\n{} x {} = {}".format(
+                                            self.value1, self.value2, correct),
+                                        font_size="32sp"),
                           size_hint=(1, 0.2))
             popup.open()
             Clock.schedule_once(popup.dismiss, 1)
@@ -69,8 +73,10 @@ class multipy(BoxLayout):
             popup = Popup(title='Désolé',
                           title_color=[1, 0.5, 0.5, 1],
                           separator_color=[1, 0.5, 0.5, 1],
-                          content=Label(text='{} x {} = {}'.format(self.value1,self.value2,correct),
-                            font_size="32sp"),
+                          content=Label(text='{} x {} = {}'.format(self.value1,
+                                                                   self.value2,
+                                                                   correct),
+                                        font_size="32sp"),
                           size_hint=(0.5, 0.2))
             popup.open()
             Clock.schedule_once(popup.dismiss, 5)
@@ -87,6 +93,7 @@ class multipyApp(App):
 
 def main():
     multipyApp().run()
+
 
 if __name__ == '__main__':
     main()
