@@ -1,13 +1,15 @@
 # -*- coding: UTF-8 -*-
 
 from random import randint
-
+from os import name as os_name
 import kivy
 
 kivy.require('1.1.2')
-# from kivy.config import Config
-# Config.set('graphics', 'width', '540')
-#Config.set('graphics', 'height', '960')
+if os_name == "nt":
+    #running windows, let's emulate the correct screen size
+    from kivy.config import Config
+    Config.set('graphics', 'width', '540')
+    Config.set('graphics', 'height', '960')
 from kivy.app import App
 from kivy.uix.label import Label
 from kivy.uix.popup import Popup

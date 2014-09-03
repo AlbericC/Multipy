@@ -22,9 +22,15 @@
             font_size:'60sp'
             size_hint: 9, 1
         Button:
-            size_hint: 1, 1
-            text: "Corriger"
             on_release: afficheur.text = ""
+            size_hint: 1, 1
+            text: ""
+            Image:
+                source: 'correct.png'
+                y: self.parent.y
+                x: self.parent.x
+                size: self.parent.width, self.parent.height
+                allow_stretch: True
     GridLayout:
         cols:3
         padding: 4
@@ -75,7 +81,7 @@
             color:[0.3,0.9,0.3,1]
             text:""
         Button:
-            font_size:"30sp"
+            font_size:"60sp"
             text:"GO !"
             on_release:root.control()
     Label:
