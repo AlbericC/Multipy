@@ -2,6 +2,23 @@
     orientation: 'vertical'
     padding: 8
     spacing: 8
+    
+    # New Widget
+    BoxLayout:
+        size_hint_y: .1
+        orientation: "vertical"
+        ActionBar:
+            ActionView:
+                use_seperator: True
+                ActionPrevious:
+                    title: "Kivy Practice"
+                    with_previous: False
+                ActionOverflow:
+                    ActionButton:
+                        text: "Settings"
+                        on_press: app.open_settings()
+    # End New Widget
+    
     Label:
         id: question
         size_hint_y:0.1
