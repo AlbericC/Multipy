@@ -77,6 +77,7 @@ class Multipy(BoxLayout):
                           separator_color=[0.5, 1, 0.5, 1],
                           content=Label(text=
                                         "{} !\n{} x {} = {}".format(good, self.value1, self.value2, correct),
+
                                         font_size="32sp"),
                           size_hint=(1, 0.2))
             popup.open()
